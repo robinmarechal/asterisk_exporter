@@ -1,0 +1,663 @@
+CMD: asterisk -rx 'agent show all'
+Agent-ID Name                 State       Channel                        Talking with
+Defined agents: 0, Logged in: 0, Talking: 0
+########################################################
+CMD: asterisk -rx 'agent show online'
+Agent-ID Name                 State       Channel                        Talking with
+Defined agents: 0, Logged in: 0, Talking: 0
+########################################################
+CMD: asterisk -rx 'ari show status'
+ARI Status:
+Enabled: Yes
+Output format: compact
+Auth realm: Asterisk REST Interface
+Allowed Origins: 
+User count: 0
+########################################################
+CMD: asterisk -rx 'bridge show all'
+Bridge-ID                            Chans Type            Technology
+########################################################
+CMD: asterisk -rx 'bridge technology show'
+Name                 Type                 Priority Suspended
+softmix              MultiMix                   10 No
+holding_bridge       Holding                    50 No
+simple_bridge        1to1Mix                    50 No
+native_rtp           Native                     90 No
+########################################################
+CMD: asterisk -rx 'calendar show calendars'
+Calendar             Type       Status
+--------             ----       ------
+########################################################
+CMD: asterisk -rx 'calendar show types'
+Type       Description                   
+########################################################
+CMD: asterisk -rx 'confbridge show menus'
+--------- Menus -----------
+sample_admin_menu
+default_menu
+sample_user_menu
+########################################################
+CMD: asterisk -rx 'confbridge show profile bridges'
+--------- Bridge Profiles -----------
+default_bridge
+########################################################
+CMD: asterisk -rx 'confbridge show profile users'
+--------- User Profiles -----------
+default_user
+########################################################
+CMD: asterisk -rx 'core show applications'
+    -= Registered Asterisk Applications =-
+        AddQueueMember: Dynamically adds queue members. 
+            AgentLogin: Login an agent. 
+          AgentRequest: Request an agent to connect with the channel. 
+                   AGI: Executes an AGI compliant application. 
+                Answer: Answer a channel if ringing. 
+          Authenticate: Authenticate a user 
+            BackGround: Play an audio file while waiting for digits of an extension to go to. 
+      BackgroundDetect: Background a file with talk detect. 
+                Bridge: Bridge two channels. 
+            BridgeWait: Put a call into the holding bridge. 
+                  Busy: Indicate the Busy condition. 
+  CallCompletionCancel: Cancel call completion service 
+  CallCompletionRequest: Request call completion service for previous call 
+       CELGenUserEvent: Generates a CEL User Defined Event. 
+         ChangeMonitor: Change monitoring filename of a channel. 
+       ChannelRedirect: Redirects given channel to a dialplan target 
+               ChanSpy: Listen to a channel, and optionally whisper into it. 
+             ClearHash: Clear the keys from a specified hashname. 
+            ConfBridge: Conference bridge application. 
+            Congestion: Indicate the Congestion condition. 
+         ContinueWhile: Restart a While loop. 
+       ControlPlayback: Play a file with fast forward and rewind. 
+             DAHDIScan: Scan DAHDI channels to monitor calls. 
+              DateTime: Says a specified time in a custom format. 
+                 DBdel: Delete a key from the asterisk database. 
+             DBdeltree: Delete a family or keytree from the asterisk database. 
+               DeadAGI: Executes AGI on a hungup channel. 
+                  Dial: Attempt to connect to another device or endpoint and bridge the call. 
+             Directory: Provide directory of voicemail extensions. 
+                  DISA: Direct Inward System Access. 
+              DumpChan: Dump Info About The Calling Channel. 
+                  EAGI: Executes an EAGI compliant application. 
+                  Echo: Echo media, DTMF back to the calling party 
+              EndWhile: End a while loop. 
+                  Exec: Executes dialplan application. 
+                ExecIf: Executes dialplan application, conditionally. 
+            ExecIfTime: Conditional application execution based on the current time. 
+             ExitWhile: End a While loop. 
+              ExtenSpy: Listen to a channel, and optionally whisper into it. 
+              FollowMe: Find-Me/Follow-Me application. 
+               ForkCDR: Forks the current Call Data Record for this channel. 
+                 Gosub: Jump to label, saving return address. 
+               GosubIf: Conditionally jump to label, saving return address. 
+                  Goto: Jump to a particular priority, extension, or context. 
+                GotoIf: Conditional goto. 
+            GotoIfTime: Conditional Goto based on the current time. 
+                Hangup: Hang up the calling channel. 
+      HangupCauseClear: Clears hangup cause information from the channel that is available through HANGUPCAUSE. 
+         IAX2Provision: Provision a calling IAXy with a given template. 
+             ImportVar: Import a variable from a channel into a new variable. 
+            Incomplete: Returns AST_PBX_INCOMPLETE value. 
+                   Log: Send arbitrary text to a selected log level. 
+                 Macro: Macro Implementation. 
+        MacroExclusive: Exclusive Macro Implementation. 
+             MacroExit: Exit from Macro. 
+               MacroIf: Conditional Macro implementation. 
+         MailboxExists: Check to see if Voicemail mailbox exists. 
+           MessageSend: Send a text message. 
+             Milliwatt: Generate a Constant 1004Hz tone at 0dbm (mu-law). 
+            MixMonitor: Record a call and mix the audio during the recording.  Use of StopMixMonitor is required to guarantee the audio file is available for processing during dialplan execution. 
+               Monitor: Monitor a channel. 
+                  MSet: Set channel variable(s) or function value(s). 
+           MusicOnHold: Play Music On Hold indefinitely. 
+                 NoCDR: Tell Asterisk to not maintain a CDR for this channel. 
+                  NoOp: Do Nothing (No Operation). 
+             Originate: Originate a call. 
+                  Page: Page series of phones 
+                  Park: Park yourself. 
+       ParkAndAnnounce: Park and Announce. 
+            ParkedCall: Retrieve a parked call. 
+          PauseMonitor: Pause monitoring of a channel. 
+      PauseQueueMember: Pauses a queue member. 
+                Pickup: Directed extension call pickup. 
+            PickupChan: Pickup a ringing channel. 
+              Playback: Play a file. 
+             PlayTones: Play a tone list. 
+        PrivacyManager: Require phone number to be entered, if no CallerID sent 
+            Proceeding: Indicate proceeding. 
+              Progress: Indicate progress. 
+                 Queue: Queue a call for a call queue. 
+              QueueLog: Writes to the queue_log file. 
+        RaiseException: Handle an exceptional condition. 
+                  Read: Read a variable. 
+             ReadExten: Read an extension into a variable. 
+            ReceiveFAX: Receive a FAX and save as a TIFF/F file. 
+                Record: Record to a file. 
+     RemoveQueueMember: Dynamically removes queue members. 
+              ResetCDR: Resets the Call Data Record. 
+             RetryDial: Place a call, retrying on failure allowing an optional exit extension. 
+                Return: Return from gosub routine. 
+               Ringing: Indicate ringing tone. 
+              SayAlpha: Say Alpha. 
+          SayAlphaCase: Say Alpha. 
+             SayDigits: Say Digits. 
+             SayNumber: Say Number. 
+           SayPhonetic: Say Phonetic. 
+           SayUnixTime: Says a specified time in a custom format. 
+              SendDTMF: Sends arbitrary DTMF digits 
+               SendFAX: Sends a specified TIFF/F file as a FAX. 
+              SendText: Send a Text Message. 
+                   Set: Set channel variable or function value. 
+           SetAMAFlags: Set the AMA Flags. 
+          SIPAddHeader: Add a SIP header to the outbound call. 
+           SIPDtmfMode: Change the dtmfmode for a SIP call. 
+       SIPRemoveHeader: Remove SIP headers previously added with SIPAddHeader 
+            SoftHangup: Hangs up the requested channel. 
+  SpeechActivateGrammar: Activate a grammar. 
+      SpeechBackground: Play a sound file and wait for speech to be recognized. 
+          SpeechCreate: Create a Speech Structure. 
+  SpeechDeactivateGrammar: Deactivate a grammar. 
+         SpeechDestroy: End speech recognition. 
+     SpeechLoadGrammar: Load a grammar. 
+  SpeechProcessingSound: Change background processing sound. 
+           SpeechStart: Start recognizing voice in the audio stream. 
+   SpeechUnloadGrammar: Unload a grammar. 
+              StackPop: Remove one address from gosub stack. 
+      StartMusicOnHold: Play Music On Hold. 
+                Stasis: Invoke an external Stasis application.
+        StopMixMonitor: Stop recording a call through MixMonitor, and free the recording's file handle. 
+           StopMonitor: Stop monitoring a channel. 
+       StopMusicOnHold: Stop playing Music On Hold. 
+         StopPlayTones: Stop playing a tone list. 
+                System: Execute a system command. 
+              Transfer: Transfer caller to remote extension. 
+               TryExec: Executes dialplan application, always returning. 
+             TrySystem: Try executing a system command. 
+        UnpauseMonitor: Unpause monitoring of a channel. 
+    UnpauseQueueMember: Unpauses a queue member. 
+             UserEvent: Send an arbitrary user-defined event to parties interested in a channel (AMI users and relevant res_stasis applications). 
+               Verbose: Send arbitrary text to verbose output. 
+        VMAuthenticate: Authenticate with Voicemail passwords. 
+             VMSayName: Play the name of a voicemail user 
+             VoiceMail: Leave a Voicemail message. 
+         VoiceMailMain: Check Voicemail messages. 
+      VoiceMailPlayMsg: Play a single voice mail msg from a mailbox by msg id. 
+                  Wait: Waits for some time. 
+             WaitExten: Waits for an extension to be entered. 
+             WaitUntil: Wait (sleep) until the current time is the given epoch. 
+                 While: Start a while loop. 
+    -= 139 Applications Registered =-
+########################################################
+CMD: asterisk -rx 'core show calls + seconds'
+Usage: core show calls [uptime] [seconds]
+       Lists number of currently active calls and total number of calls
+       processed through PBX since last restart. If 'uptime' is specified
+       the system uptime is also displayed. If 'seconds' is specified in
+       addition to 'uptime', the system uptime is displayed in seconds.
+########################################################
+CMD: asterisk -rx 'core show channels count'
+12 active channels
+23 active calls
+56 calls processed
+########################################################
+CMD: asterisk -rx 'core show channeltypes'
+Type             Description                              Devicestate  Indications  Transfer    
+-----------      -----------                              -----------  -----------  ----------- 
+Recorder         Bridge Media Recording Channel Driver    no           yes          no          
+Announcer        Bridge Media Announcing Channel Driver   no           yes          no          
+CBAnn            Conference Bridge Announcing Channel     no           yes          no          
+CBRec            Conference Bridge Recording Channel      no           no           no          
+SIP              Session Initiation Protocol (SIP)        yes          yes          yes         
+PJSIP            PJSIP Channel Driver                     yes          yes          yes         
+IAX2             Inter Asterisk eXchange Driver (Ver 2)   yes          yes          yes         
+UnicastRTP       Unicast RTP Media Channel Driver         no           no           no          
+MulticastRTP     Multicast RTP Paging Channel Driver      no           no           no          
+Local            Local Proxy Channel Driver               yes          yes          no          
+Surrogate        Surrogate channel used to pull channel f no           no           no          
+----------
+11 channel drivers registered.
+########################################################
+CMD: asterisk -rx 'core show hanguphandlers all'
+Channel                        Handler
+########################################################
+CMD: asterisk -rx 'core show image formats'
+      Name Extensions                                        Description     Format
+      ---- ----------                                        -----------     ------
+0 image formats registered.
+########################################################
+CMD: asterisk -rx 'core show sysinfo'
+System Statistics
+-----------------
+  System Uptime:             9 hours
+  Total RAM:                 12959084 KiB
+  Free RAM:                  8689472 KiB
+  Buffer RAM:                184724 KiB
+  Total Swap Space:          4194304 KiB
+  Free Swap Space:           4194304 KiB
+  Number of Processes:       672 
+########################################################
+CMD: asterisk -rx 'core show taskprocessors'
+Processor                                      Processed   In Queue  Max Depth  Low water High water
+app_voicemail                                          0          0          0        450        500
+ast_msg_queue                                          0          0          0        450        500
+CCSS_core                                              1          0          1        450        500
+hep_queue_tp                                           0          0          0        450        500
+iax2_transmit                                          0          0          0        450        500
+pjsip/default-00000009                                 4          0          1        450        500
+pjsip/default-0000000a                                 4          0          1        450        500
+pjsip/default-0000000b                                 4          0          1        450        500
+pjsip/default-0000000c                                 3          0          1        450        500
+pjsip/default-0000000d                                 3          0          1        450        500
+pjsip/default-0000000e                                 3          0          1        450        500
+pjsip/default-0000000f                                 3          0          1        450        500
+pjsip/default-00000010                                 3          0          1        450        500
+pjsip/distributor-0000001a                             0          0          0        450        500
+pjsip/distributor-0000001b                             0          0          0        450        500
+pjsip/distributor-0000001c                             0          0          0        450        500
+pjsip/distributor-0000001d                             0          0          0        450        500
+pjsip/distributor-0000001e                             0          0          0        450        500
+pjsip/distributor-0000001f                             0          0          0        450        500
+pjsip/distributor-00000020                             0          0          0        450        500
+pjsip/distributor-00000021                             0          0          0        450        500
+pjsip/distributor-00000022                             0          0          0        450        500
+pjsip/distributor-00000023                             0          0          0        450        500
+pjsip/distributor-00000024                             0          0          0        450        500
+pjsip/distributor-00000025                             0          0          0        450        500
+pjsip/distributor-00000026                             0          0          0        450        500
+pjsip/distributor-00000027                             0          0          0        450        500
+pjsip/distributor-00000028                             0          0          0        450        500
+pjsip/distributor-00000029                             0          0          0        450        500
+pjsip/distributor-0000002a                             0          0          0        450        500
+pjsip/distributor-0000002b                             0          0          0        450        500
+pjsip/distributor-0000002c                             0          0          0        450        500
+pjsip/distributor-0000002d                             0          0          0        450        500
+pjsip/distributor-0000002e                             0          0          0        450        500
+pjsip/distributor-0000002f                             0          0          0        450        500
+pjsip/distributor-00000030                             0          0          0        450        500
+pjsip/distributor-00000031                             0          0          0        450        500
+pjsip/distributor-00000032                             0          0          0        450        500
+pjsip/distributor-00000033                             0          0          0        450        500
+pjsip/distributor-00000034                             0          0          0        450        500
+pjsip/distributor-00000035                             0          0          0        450        500
+pjsip/distributor-00000036                             0          0          0        450        500
+pjsip/distributor-00000037                             0          0          0        450        500
+pjsip/distributor-00000038                             0          0          0        450        500
+pjsip/messaging                                        0          0          0        450        500
+SIP                                                   27          0          2        450        500
+SIP-control                                           65          0          3        450        500
+Sorcery                                                5          0          2        450        500
+Sorcery-control                                       13          0          2        450        500
+sorcery/acl-00000045                                   0          0          0        450        500
+sorcery/aor-00000016                                   1          0          1        450        500
+sorcery/asterisk-publication-0000003f                  0          0          0        450        500
+sorcery/auth-00000011                                  0          0          0        450        500
+sorcery/bucket-00000000                                0          0          0        450        500
+sorcery/contact-00000015                               1          0          1       1350       1500
+sorcery/contact_status-00000017                        1          0          1       1350       1500
+sorcery/domain_alias-00000018                          0          0          0        450        500
+sorcery/endpoint-00000012                              1          0          1        450        500
+sorcery/file-00000001                                  0          0          0        450        500
+sorcery/global-00000019                                1          0          1        450        500
+sorcery/identify-00000044                              0          0          0        450        500
+sorcery/inbound-publication-0000003c                   0          0          0        450        500
+sorcery/log_mappings-00000007                          0          0          0        450        500
+sorcery/nat_hook-00000013                              0          0          0        450        500
+sorcery/outbound-publish-00000039                      0          0          0        450        500
+sorcery/registration-00000046                          0          0          0        450        500
+sorcery/resource_list-0000003b                         0          0          0        450        500
+sorcery/subscription_persistence-0000003a              0          0          0        450        500
+sorcery/system-00000008                                0          0          0        450        500
+sorcery/transport-00000014                             0          0          0        450        500
+stasis-core                                            8          0          2        450        500
+stasis-core-control                                   27          0          3        450        500
+subm:ast_bridge_topic_all-cached-00000047              1          0          1        450        500
+subm:ast_channel_topic_all-0000004c                    1          0          1        450        500
+subm:ast_channel_topic_all-cached-00000048             6          0          4        450        500
+subm:ast_device_state_topic-00000002                   3          0          1        450        500
+subm:ast_device_state_topic-00000004                   2          0          1        450        500
+subm:ast_device_state_topic-0000004b                   1          0          1        450        500
+subm:ast_parking-0000003e                              1          0          1        450        500
+subm:ast_presence_state_topic_all-00000005             1          0          1        450        500
+subm:ast_security-00000049                             1          0          1        450        500
+subm:ast_system-00000006                              32          0         15        450        500
+subm:ast_system-00000041                              31          0          5        450        500
+subm:ast_system-00000043                              30          0          5        450        500
+subm:cdr_engine-00000003                               9          0          4       4500       5000
+subm:rtp_topic-0000004a                                1          0          1        450        500
+subp:IAX2/demo-00000042                                2          0          2        450        500
+87 taskprocessors
+########################################################
+CMD: asterisk -rx 'core show threads'
+0x7f67583ae700 3695 netconsole           started at [ 1639] asterisk.c listener()
+0x7f6704ee0700 70 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6704f5c700 69 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6704fd8700 68 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6705054700 67 lock_broker          started at [  524] func_lock.c load_module()
+0x7f67050d0700 66 scan_thread          started at [  920] pbx_spool.c load_module()
+0x7f670514c700 65 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67051c8700 64 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6705244700 63 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67052c0700 62 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f670533c700 61 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f67053b8700 60 do_monitor           started at [29516] chan_sip.c restart_monitor()
+0x7f6705434700 59 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67054b0700 58 network_thread       started at [12622] chan_iax2.c start_network_thread()
+0x7f670552c700 57 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f67055a8700 56 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705624700 55 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f67056a0700 54 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f670571c700 53 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705798700 52 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705814700 51 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705890700 50 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f670590c700 49 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705988700 48 iax2_process_thread  started at [12600] chan_iax2.c start_network_thread()
+0x7f6705a04700 47 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6705a80700 46 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f6705afc700 45 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67400bd700 44 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f6740139700 42 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f67401b5700 41 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6743f07700 40 do_refresh           started at [ 1902] res_calendar.c load_module()
+0x7f6743f83700 39 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f6743fff700 38 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f67580c6700 37 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f6759b3a700 28 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b00b0700 27 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f67b0333700 26 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b03af700 25 sched_run            started at [  217] sched.c ast_sched_start_thread()
+0x7f67b042b700 24 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b04a7700 23 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b0523700 22 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b059f700 21 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b061b700 20 do_devstate_changes  started at [  646] devicestate.c ast_device_state_engine_init()
+0x7f67b0713700 18 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b0697700 19 bridge_manager_thread started at [ 4869] bridge.c bridge_manager_create()
+0x7f67b078f700 17 db_sync_thread       started at [ 1022] db.c astdb_init()
+0x7f67b080b700 16 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b09fb700 12 logger_thread        started at [ 1595] logger.c init_logger()
+0x7f67b0af3700 9 listener             started at [ 1699] asterisk.c ast_makesocket()
+0x7f67b4dce700 8 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+0x7f67b4e4a700 7 default_tps_processing_function started at [  202] taskprocessor.c default_listener_start()
+51 threads listed.
+########################################################
+CMD: asterisk -rx 'core show uptime seconds'
+System uptime: 36520
+Last reload: 12345
+########################################################
+CMD: asterisk -rx 'core show version'
+Asterisk certified/13.8-cert4 built by root @ 1b0d6163fdc2 on a x86_64 running Linux on 2017-09-01 18:37:56 UTC
+########################################################
+CMD: asterisk -rx 'iax2 show channels'
+Channel               Peer                                      Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format  FirstMsg    LastMsg
+0 active IAX channels
+########################################################
+CMD: asterisk -rx 'module show'
+Module                         Description                              Use Count  Status      Support Level
+app_agent_pool.so              Call center agent pool applications      0          Running              core
+app_authenticate.so            Authentication Application               0          Running              core
+app_bridgewait.so              Place the channel into a holding bridge  0          Running              core
+app_cdr.so                     Tell Asterisk to not maintain a CDR for  0          Running              core
+app_celgenuserevent.so         Generate an User-Defined CEL event       0          Running              core
+app_channelredirect.so         Redirects a given channel to a dialplan  0          Running              core
+app_chanspy.so                 Listen to the audio of an active channel 0          Running              core
+app_confbridge.so              Conference Bridge Application            0          Running              core
+app_controlplayback.so         Control Playback Application             0          Running              core
+app_db.so                      Database Access Functions                0          Running              core
+app_dial.so                    Dialing Application                      0          Running              core
+app_directed_pickup.so         Directed Call Pickup Application         0          Running              core
+app_directory.so               Extension Directory                      0          Running              core
+app_disa.so                    DISA (Direct Inward System Access) Appli 0          Running              core
+app_dumpchan.so                Dump Info About The Calling Channel      0          Running              core
+app_echo.so                    Simple Echo Application                  0          Running              core
+app_exec.so                    Executes dialplan applications           0          Running              core
+app_followme.so                Find-Me/Follow-Me Application            0          Running              core
+app_forkcdr.so                 Fork The CDR into 2 separate entities    0          Running              core
+app_macro.so                   Extension Macros                         0          Running              core
+app_milliwatt.so               Digital Milliwatt (mu-law) Test Applicat 0          Running              core
+app_mixmonitor.so              Mixed Audio Monitoring Application       0          Running              core
+app_originate.so               Originate call                           0          Running              core
+app_page.so                    Page Multiple Phones                     0          Running              core
+app_playback.so                Sound File Playback Application          0          Running              core
+app_playtones.so               Playtones Application                    0          Running              core
+app_privacy.so                 Require phone number to be entered, if n 0          Running              core
+app_queue.so                   True Call Queueing                       0          Running              core
+app_read.so                    Read Variable Application                0          Running              core
+app_readexten.so               Read and evaluate extension validity     0          Running              core
+app_record.so                  Trivial Record Application               0          Running              core
+app_sayunixtime.so             Say time                                 0          Running              core
+app_senddtmf.so                Send DTMF digits Application             0          Running              core
+app_sendtext.so                Send Text Applications                   0          Running              core
+app_softhangup.so              Hangs up the requested channel           0          Running              core
+app_speech_utils.so            Dialplan Speech Applications             0          Running              core
+app_stack.so                   Dialplan subroutines (Gosub, Return, etc 0          Running              core
+app_stasis.so                  Stasis dialplan application              0          Running              core
+app_system.so                  Generic System() application             0          Running              core
+app_talkdetect.so              Playback with Talk Detection             0          Running          extended
+app_transfer.so                Transfers a caller to another extension  0          Running              core
+app_userevent.so               Custom User Event Application            0          Running              core
+app_verbose.so                 Send verbose output                      0          Running              core
+app_voicemail.so               Comedian Mail (Voicemail System)         0          Running              core
+app_waituntil.so               Wait until specified time                0          Running              core
+app_while.so                   While Loops and Conditional Execution    0          Running              core
+bridge_builtin_features.so     Built in bridging features               1          Running              core
+bridge_builtin_interval_features.so Built in bridging interval features      0          Running              core
+bridge_holding.so              Holding bridge module                    0          Running              core
+bridge_native_rtp.so           Native RTP bridging module               0          Running              core
+bridge_simple.so               Simple two channel bridging module       0          Running              core
+bridge_softmix.so              Multi-party software based channel mixin 0          Running              core
+cdr_csv.so                     Comma Separated Values CDR Backend       0          Running          extended
+cdr_custom.so                  Customizable Comma Separated Values CDR  0          Running              core
+cdr_manager.so                 Asterisk Manager Interface CDR Backend   0          Running              core
+cdr_syslog.so                  Customizable syslog CDR Backend          0          Not Running          core
+cel_custom.so                  Customizable Comma Separated Values CEL  0          Running              core
+cel_manager.so                 Asterisk Manager Interface CEL Backend   0          Running              core
+chan_bridge_media.so           Bridge Media Channel Driver              0          Running              core
+chan_iax2.so                   Inter Asterisk eXchange (Ver 2)          0          Running              core
+chan_pjsip.so                  PJSIP Channel Driver                     0          Running              core
+chan_rtp.so                    RTP Media Channel                        0          Running              core
+chan_sip.so                    Session Initiation Protocol (SIP)        0          Running              core
+codec_a_mu.so                  A-law and Mulaw direct Coder/Decoder     0          Running              core
+codec_adpcm.so                 Adaptive Differential PCM Coder/Decoder  0          Running              core
+codec_alaw.so                  A-law Coder/Decoder                      0          Running              core
+codec_g722.so                  ITU G.722-64kbps G722 Transcoder         0          Running              core
+codec_g726.so                  ITU G.726-32kbps G726 Transcoder         0          Running              core
+codec_gsm.so                   GSM Coder/Decoder                        0          Running              core
+codec_ilbc.so                  iLBC Coder/Decoder                       0          Running              core
+codec_lpc10.so                 LPC10 2.4kbps Coder/Decoder              0          Running              core
+codec_resample.so              SLIN Resampling Codec                    0          Running              core
+codec_ulaw.so                  mu-Law Coder/Decoder                     0          Running              core
+format_g719.so                 ITU G.719                                0          Running              core
+format_g723.so                 G.723.1 Simple Timestamp File Format     0          Running              core
+format_g726.so                 Raw G.726 (16/24/32/40kbps) data         0          Running              core
+format_g729.so                 Raw G.729 data                           0          Running              core
+format_gsm.so                  Raw GSM data                             0          Running              core
+format_h263.so                 Raw H.263 data                           0          Running              core
+format_h264.so                 Raw H.264 data                           0          Running              core
+format_ilbc.so                 Raw iLBC data                            0          Running              core
+format_pcm.so                  Raw/Sun uLaw/ALaw 8KHz (PCM,PCMA,AU), G. 0          Running              core
+format_siren14.so              ITU G.722.1 Annex C (Siren14, licensed f 0          Running              core
+format_siren7.so               ITU G.722.1 (Siren7, licensed from Polyc 0          Running              core
+format_sln.so                  Raw Signed Linear Audio support (SLN) 8k 0          Running              core
+format_wav.so                  Microsoft WAV/WAV16 format (8kHz/16kHz S 0          Running              core
+format_wav_gsm.so              Microsoft WAV format (Proprietary GSM)   0          Running              core
+func_aes.so                    AES dialplan functions                   0          Running              core
+func_base64.so                 base64 encode/decode dialplan functions  0          Running              core
+func_blacklist.so              Look up Caller*ID name/number from black 0          Running              core
+func_callcompletion.so         Call Control Configuration Function      0          Running              core
+func_callerid.so               Party ID related dialplan functions (Cal 0          Running              core
+func_cdr.so                    Call Detail Record (CDR) dialplan functi 0          Running              core
+func_channel.so                Channel information dialplan functions   0          Running              core
+func_config.so                 Asterisk configuration file variable acc 0          Running              core
+func_cut.so                    Cut out information from a string        0          Running              core
+func_db.so                     Database (astdb) related dialplan functi 0          Running              core
+func_devstate.so               Gets or sets a device state in the dialp 0          Running              core
+func_dialgroup.so              Dialgroup dialplan function              0          Running              core
+func_dialplan.so               Dialplan Context/Extension/Priority Chec 0          Running              core
+func_enum.so                   ENUM related dialplan functions          0          Running              core
+func_env.so                    Environment/filesystem dialplan function 0          Running              core
+func_extstate.so               Gets an extension's state in the dialpla 0          Running              core
+func_global.so                 Variable dialplan functions              0          Running              core
+func_groupcount.so             Channel group dialplan functions         0          Running              core
+func_hangupcause.so            HANGUPCAUSE related functions and applic 0          Running              core
+func_holdintercept.so          Hold interception dialplan function      0          Running              core
+func_iconv.so                  Charset conversions                      0          Running              core
+func_jitterbuffer.so           Jitter buffer for read side of channel.  0          Running              core
+func_lock.so                   Dialplan mutexes                         0          Running              core
+func_logic.so                  Logical dialplan functions               0          Running              core
+func_math.so                   Mathematical dialplan function           0          Running              core
+func_md5.so                    MD5 digest dialplan functions            0          Running              core
+func_module.so                 Checks if Asterisk module is loaded in m 0          Running              core
+func_periodic_hook.so          Periodic dialplan hooks.                 0          Running              core
+func_pjsip_aor.so              Get information about a PJSIP AOR        0          Running              core
+func_pjsip_contact.so          Get information about a PJSIP contact    0          Running              core
+func_pjsip_endpoint.so         Get information about a PJSIP endpoint   0          Running              core
+func_presencestate.so          Gets or sets a presence state in the dia 0          Running              core
+func_rand.so                   Random number dialplan function          0          Running              core
+func_realtime.so               Read/Write/Store/Destroy values from a R 0          Running              core
+func_sha1.so                   SHA-1 computation dialplan function      0          Running              core
+func_shell.so                  Collects the output generated by a comma 0          Running              core
+func_sorcery.so                Get a field from a sorcery object        0          Running              core
+func_sprintf.so                SPRINTF dialplan function                0          Running              core
+func_srv.so                    SRV related dialplan functions           0          Running              core
+func_strings.so                String handling dialplan functions       0          Running              core
+func_sysinfo.so                System information related functions     0          Running              core
+func_talkdetect.so             Talk detection dialplan function         0          Running              core
+func_timeout.so                Channel timeout dialplan functions       0          Running              core
+func_uri.so                    URI encode/decode dialplan functions     0          Running              core
+func_version.so                Get Asterisk Version/Build Info          0          Running              core
+func_vmcount.so                Indicator for whether a voice mailbox ha 0          Running              core
+func_volume.so                 Technology independent volume control    0          Running              core
+pbx_config.so                  Text Extension Configuration             0          Running              core
+pbx_loopback.so                Loopback Switch                          0          Running              core
+pbx_spool.so                   Outgoing Spool Support                   0          Running              core
+res_adsi.so                    ADSI Resource                            0          Running              core
+res_agi.so                     Asterisk Gateway Interface (AGI)         1          Running              core
+res_ari.so                     Asterisk RESTful Interface               10         Running              core
+res_ari_applications.so        RESTful API module - Stasis application  0          Running              core
+res_ari_asterisk.so            RESTful API module - Asterisk resources  0          Running              core
+res_ari_bridges.so             RESTful API module - Bridge resources    0          Running              core
+res_ari_channels.so            RESTful API module - Channel resources   0          Running              core
+res_ari_device_states.so       RESTful API module - Device state resour 0          Running              core
+res_ari_endpoints.so           RESTful API module - Endpoint resources  0          Running              core
+res_ari_events.so              RESTful API module - WebSocket resource  0          Running              core
+res_ari_model.so               ARI Model validators                     0          Running              core
+res_ari_playbacks.so           RESTful API module - Playback control re 0          Running              core
+res_ari_recordings.so          RESTful API module - Recording resources 0          Running              core
+res_ari_sounds.so              RESTful API module - Sound resources     0          Running              core
+res_calendar.so                Asterisk Calendar integration            0          Running              core
+res_clialiases.so              CLI Aliases                              0          Running              core
+res_clioriginate.so            Call origination and redirection from th 0          Running              core
+res_config_sqlite3.so          SQLite 3 realtime config engine          0          Running              core
+res_convert.so                 File format conversion CLI command       0          Running              core
+res_crypto.so                  Cryptographic Digital Signatures         1          Running              core
+res_fax.so                     Generic FAX Applications                 0          Running              core
+res_format_attr_celt.so        CELT Format Attribute Module             1          Running              core
+res_format_attr_h263.so        H.263 Format Attribute Module            1          Running              core
+res_format_attr_h264.so        H.264 Format Attribute Module            1          Running              core
+res_format_attr_opus.so        Opus Format Attribute Module             1          Running              core
+res_format_attr_silk.so        SILK Format Attribute Module             1          Running              core
+res_format_attr_vp8.so         VP8 Format Attribute Module              1          Running              core
+res_hep.so                     HEPv3 API                                0          Running          extended
+res_hep_pjsip.so               PJSIP HEPv3 Logger                       0          Running          extended
+res_hep_rtcp.so                RTCP HEPv3 Logger                        0          Running           unknown
+res_http_websocket.so          HTTP WebSocket Support                   2          Running          extended
+res_limit.so                   Resource limits                          0          Running              core
+res_manager_devicestate.so     Manager Device State Topic Forwarder     0          Running              core
+res_manager_presencestate.so   Manager Presence State Topic Forwarder   0          Running              core
+res_monitor.so                 Call Monitoring Resource                 0          Running              core
+res_musiconhold.so             Music On Hold Resource                   0          Running              core
+res_mutestream.so              Mute audio stream resources              0          Running              core
+res_parking.so                 Call Parking Resource                    0          Running              core
+res_pjproject.so               PJPROJECT Log and Utility Support        1          Running              core
+res_pjsip.so                   Basic SIP resource                       22         Running              core
+res_pjsip_acl.so               PJSIP ACL Resource                       0          Running              core
+res_pjsip_authenticator_digest.so PJSIP authentication resource            0          Running              core
+res_pjsip_caller_id.so         PJSIP Caller ID Support                  0          Running              core
+res_pjsip_config_wizard.so     PJSIP Config Wizard                      1          Running              core
+res_pjsip_dialog_info_body_generator.so PJSIP Extension State Dialog Info+XML Pr 0          Running              core
+res_pjsip_diversion.so         PJSIP Add Diversion Header Support       0          Running              core
+res_pjsip_dlg_options.so       SIP OPTIONS in dialog handler            0          Running           unknown
+res_pjsip_dtmf_info.so         PJSIP DTMF INFO Support                  0          Running              core
+res_pjsip_endpoint_identifier_anonymous.so PJSIP Anonymous endpoint identifier      0          Running              core
+res_pjsip_endpoint_identifier_ip.so PJSIP IP endpoint identifier             0          Running              core
+res_pjsip_endpoint_identifier_user.so PJSIP username endpoint identifier       0          Running              core
+res_pjsip_exten_state.so       PJSIP Extension State Notifications      0          Running              core
+res_pjsip_header_funcs.so      PJSIP Header Functions                   0          Running              core
+res_pjsip_logger.so            PJSIP Packet Logger                      0          Running              core
+res_pjsip_messaging.so         PJSIP Messaging Support                  0          Running              core
+res_pjsip_multihomed.so        PJSIP Multihomed Routing Support         0          Running              core
+res_pjsip_mwi.so               PJSIP MWI resource                       0          Running              core
+res_pjsip_mwi_body_generator.so PJSIP MWI resource                       0          Running              core
+res_pjsip_nat.so               PJSIP NAT Support                        0          Running              core
+res_pjsip_notify.so            CLI/AMI PJSIP NOTIFY Support             0          Running              core
+res_pjsip_one_touch_record_info.so PJSIP INFO One Touch Recording Support   0          Running              core
+res_pjsip_outbound_authenticator_digest.so PJSIP authentication resource            0          Running              core
+res_pjsip_outbound_publish.so  PJSIP Outbound Publish Support           2          Running           unknown
+res_pjsip_outbound_registration.so PJSIP Outbound Registration Support      0          Running              core
+res_pjsip_path.so              PJSIP Path Header Support                0          Running              core
+res_pjsip_pidf_body_generator.so PJSIP Extension State PIDF Provider      0          Running              core
+res_pjsip_pidf_digium_body_supplement.so PJSIP PIDF Digium presence supplement    0          Running              core
+res_pjsip_pidf_eyebeam_body_supplement.so PJSIP PIDF Eyebeam supplement            0          Running              core
+res_pjsip_publish_asterisk.so  PJSIP Asterisk Event PUBLISH Support     0          Running           unknown
+res_pjsip_pubsub.so            PJSIP event resource                     5          Running              core
+res_pjsip_refer.so             PJSIP Blind and Attended Transfer Suppor 0          Running              core
+res_pjsip_registrar.so         PJSIP Registrar Support                  0          Running              core
+res_pjsip_registrar_expire.so  PJSIP Contact Auto-Expiration            0          Running              core
+res_pjsip_rfc3326.so           PJSIP RFC3326 Support                    0          Running              core
+res_pjsip_sdp_rtp.so           PJSIP SDP RTP/AVP stream handler         0          Running              core
+res_pjsip_send_to_voicemail.so PJSIP REFER Send to Voicemail Support    0          Running              core
+res_pjsip_session.so           PJSIP Session resource                   22         Running              core
+res_pjsip_sips_contact.so      UAC SIPS Contact support                 0          Running              core
+res_pjsip_t38.so               PJSIP T.38 UDPTL Support                 0          Running              core
+res_pjsip_transport_management.so PJSIP Reliable Transport Management      1          Running              core
+res_pjsip_transport_websocket.so PJSIP WebSocket Transport Support        0          Not Running          core
+res_pjsip_xpidf_body_generator.so PJSIP Extension State PIDF Provider      0          Running              core
+res_realtime.so                Realtime Data Lookup/Rewrite             0          Running              core
+res_rtp_asterisk.so            Asterisk RTP Stack                       0          Running              core
+res_rtp_multicast.so           Multicast RTP Engine                     0          Running              core
+res_security_log.so            Security Event Logging                   0          Running              core
+res_smdi.so                    Simplified Message Desk Interface (SMDI) 0          Running              core
+res_snmp.so                    SNMP [Sub]Agent for Asterisk             0          Running          extended
+res_sorcery_astdb.so           Sorcery Astdb Object Wizard              2          Running              core
+res_sorcery_config.so          Sorcery Configuration File Object Wizard 15         Running              core
+res_sorcery_memory.so          Sorcery In-Memory Object Wizard          7          Running              core
+res_sorcery_memory_cache.so    Sorcery Memory Cache Object Wizard       0          Running              core
+res_sorcery_realtime.so        Sorcery Realtime Object Wizard           0          Running              core
+res_speech.so                  Generic Speech Recognition API           0          Running              core
+res_stasis.so                  Stasis application support               12         Running              core
+res_stasis_answer.so           Stasis application answer support        0          Running              core
+res_stasis_device_state.so     Stasis application device state support  0          Running              core
+res_stasis_playback.so         Stasis application playback support      0          Running              core
+res_stasis_recording.so        Stasis application recording support     0          Running              core
+res_stasis_snoop.so            Stasis application snoop support         0          Running              core
+res_stun_monitor.so            STUN Network Monitor                     0          Running              core
+res_timing_timerfd.so          Timerfd Timing Interface                 1          Running              core
+239 modules loaded
+########################################################
+CMD: asterisk -rx 'sip show channels'
+Peer             User/ANR         Call ID          Format           Hold     Last Message    Expiry     Peer      
+0 active SIP dialogs
+########################################################
+CMD: asterisk -rx 'sip show subscriptions'
+Peer             User             Call ID          Extension        Last state     Type            Mailbox    Expiry
+0 active SIP subscriptions
+########################################################
+CMD: asterisk -rx 'sip show channelstats'
+Peer             Call ID      Duration Recv: Pack  Lost       (     %) Jitter Send: Pack  Lost       (     %) Jitter
+0 active SIP channels
+########################################################
+CMD: asterisk -rx 'sip show peers'
+Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description  
+12368 dfghjk UNKNOWN fzfze
+1259 azerty UNKNOWN jthgezfaz
+83348 ltejnoer OK (9875 zetrgefd
+76198 zjebz OK (9875) hytgrfed
+036 fzf OK (9875) hytgfrde
+9763 zefzgezegrz UNKNOWN gege
+16962 fzfze OK (9875) fzfbrhtgrfd
+5 sip peers [Monitored: 2 online, 3 offline Unmonitored: 4 online, 5 offline]
+########################################################
+CMD: asterisk -rx 'sip show users'
+Username                   Secret           Accountcode      Def.Context      ACL  Forcerport
+########################################################

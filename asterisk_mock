@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CMD_SEPARATOR="#################"
+
+
+arg="$2"
+
+if [[ "$arg" = "" ]]; then
+    echo "ERROR: Need 2 arguments, in the form '-rx <asterisk cmd>'"
+    exit 1
+fi
+
+cat extract | grep -A 99999 "$arg" | grep -B 99999 -m 1 "$CMD_SEPARATOR" | grep -v 'CMD:' | grep -v "$CMD_SEPARATOR"
+

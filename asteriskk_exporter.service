@@ -1,0 +1,19 @@
+[Unit]
+Description=Asterisk exporter
+After=network.target
+
+[Service]
+User=asteriskk_exporter
+Group=asteriskk_exporter
+Type=simple
+ExecStart=/usr/local/bin/asteriskk_exporter \
+        --web.listen-address=":9795" \
+        --web.telemetry-path="/metrics" \
+        --metrics.prefix="asterisk" \
+        --asterisk.path="/usr/bin/asterisk"
+
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
