@@ -12,7 +12,7 @@ require (
 	github.com/prometheus/common v0.20.0
 	github.com/prometheus/exporter-toolkit v0.5.1
 	github.com/prometheus/promu v0.11.1 // indirect
-	golang.org/x/net v0.0.0-20210324205630-d1beb07c2056 // indirect
+	golang.org/x/net v0.0.0-20210326060303-6b1517762897 // indirect
 	golang.org/x/oauth2 v0.0.0-20210323180902-22b0adad7558 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
