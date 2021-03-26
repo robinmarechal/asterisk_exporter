@@ -364,6 +364,7 @@ func (c *CmdRunner) newSystemInfo(out string, err error) *SystemInfo {
 		return &DefaultSystemInfo
 	}
 
+	//
 	// System Statistics
 	// -----------------
 	// System Uptime:             9 hours
@@ -372,16 +373,26 @@ func (c *CmdRunner) newSystemInfo(out string, err error) *SystemInfo {
 	// Buffer RAM:                184724 KiB
 	// Total Swap Space:          4194304 KiB
 	// Free Swap Space:           4194304 KiB
+
 	// Number of Processes:       672
+	//
 
 	result := SystemInfo{}
 
 	out = strings.TrimSuffix(out, "\n")
 	lines := strings.Split(out, "\n")
 
-	for i := 2; i < len(lines); i++ {
-		line := lines[i]
+	for i := 0; i < len(lines); i++ {
+		line := strings.TrimSpace(lines[i])
+		if line == "" {
+			continue
+		}
+
 		kv := strings.Split(line, ":")
+
+		if len(kv) != 2 {
+			continue
+		}
 
 		key := kv[0]
 		value := strings.TrimSpace(kv[1])

@@ -545,25 +545,29 @@ func TestNewImagesInfo(t *testing.T) {
 
 func TestNewSystemInfo(t *testing.T) {
 	// core show sysinfo
-	sample := `System Statistics
+	sample := `
+	System Statistics
 	-----------------
-System Uptime:             9 hours
-Total RAM:                 12959084 KiB
-Free RAM:                  8689472 KiB
-Buffer RAM:                184724 KiB
-Total Swap Space:          4194304 KiB
-Free Swap Space:           4194304 KiB
-Number of Processes:       672 `
+	  System Uptime:             61 hours
+	  Total RAM:                 5915724 KiB
+	  Free RAM:                  148876 KiB
+	  Buffer RAM:                228980 KiB
+	  Total Swap Space:          786428 KiB
+	  Free Swap Space:           786428 KiB
+	
+	  Number of Processes:       294
+	
+	`
 
 	result := cmdRunner.newSystemInfo(sample, nil)
 
 	expected := SystemInfo{
-		TotalMemory:  12959084 * 1024,
-		FreeMemory:   8689472 * 1024,
-		BufferMemory: 184724 * 1024,
-		TotalSwap:    4194304 * 1024,
-		FreeSwap:     4194304 * 1024,
-		ProcessCount: 672,
+		TotalMemory:  5915724 * 1024,
+		FreeMemory:   148876 * 1024,
+		BufferMemory: 228980 * 1024,
+		TotalSwap:    786428 * 1024,
+		FreeSwap:     786428 * 1024,
+		ProcessCount: 294,
 	}
 
 	if *result != expected {

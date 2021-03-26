@@ -226,15 +226,18 @@ CMD: asterisk -rx 'core show image formats'
 0 image formats registered.
 ########################################################
 CMD: asterisk -rx 'core show sysinfo'
+
 System Statistics
 -----------------
-  System Uptime:             9 hours
-  Total RAM:                 12959084 KiB
-  Free RAM:                  8689472 KiB
-  Buffer RAM:                184724 KiB
-  Total Swap Space:          4194304 KiB
-  Free Swap Space:           4194304 KiB
-  Number of Processes:       672 
+  System Uptime:             61 hours
+  Total RAM:                 5915724 KiB
+  Free RAM:                  148876 KiB
+  Buffer RAM:                228980 KiB
+  Total Swap Space:          786428 KiB
+  Free Swap Space:           786428 KiB
+
+  Number of Processes:       294
+
 ########################################################
 CMD: asterisk -rx 'core show taskprocessors'
 Processor                                      Processed   In Queue  Max Depth  Low water High water
