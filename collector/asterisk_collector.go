@@ -430,7 +430,7 @@ func collectMetrics(c *cmd.CmdRunner) (*asteriskMetrics, error) {
 
 func (c *asteriskCollector) updateMetrics(values *asteriskMetrics, ch chan<- prometheus.Metric) {
 	ch <- prometheus.MustNewConstMetric(c.totalActiveChannels, prometheus.GaugeValue, float64(values.ChannelsInfo.ActiveChannels))
-	ch <- prometheus.MustNewConstMetric(c.totalActiveCalls, prometheus.GaugeValue, float64(values.ChannelsInfo.ProcessedCalls))
+	ch <- prometheus.MustNewConstMetric(c.totalActiveCalls, prometheus.GaugeValue, float64(values.ChannelsInfo.ActiveCalls))
 	ch <- prometheus.MustNewConstMetric(c.totalCallsProcessed, prometheus.GaugeValue, float64(values.ChannelsInfo.ProcessedCalls))
 	ch <- prometheus.MustNewConstMetric(c.systemUptimeSeconds, prometheus.GaugeValue, float64(values.UptimeInfo.SystemUptimeSeconds))
 	ch <- prometheus.MustNewConstMetric(c.lastReloadSeconds, prometheus.GaugeValue, float64(values.UptimeInfo.LastReloadSeconds))
