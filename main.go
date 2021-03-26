@@ -24,7 +24,7 @@ import (
 
 var (
 	listenAddress         = kingpin.Flag("web.listen-address", "The address to listen on for HTTP requests.").Default(":9795").String()
-	asteriskPath          = kingpin.Flag("asterisk.path", "Path to Asterisk binary").Default("/usr/bin/asterisk").String()
+	asteriskPath          = kingpin.Flag("asterisk.path", "Path to Asterisk binary").Default("/usr/sbin/asterisk").String()
 	prefix                = kingpin.Flag("metrics.prefix", "Prefix of exposed metrics").Default("asterisk").String()
 	metricsPath           = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics.").Default("/metrics").String()
 	enableExporterMetrics = kingpin.Flag("web.enable-exporter-metrics", "Include metrics about the exporter itself (process_*, go_*).").Default("false").Bool()
