@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"bytes"
 	"os/exec"
 	"regexp"
 
@@ -289,11 +290,15 @@ func NewCmdRunner(asteriskPath string, logger *log.Logger) *CmdRunner {
 func (c *CmdRunner) run(asteriskCommand string) (string, error) {
 	cmd := exec.Command(c.Cmd, "-rx", asteriskCommand)
 
+	var stderr bytes.Buffer
+
+	cmd.Stderr = &stderr
+
 	level.Debug(*c.Logger).Log("msg", "Running command", "cmd", cmd.String())
 	outBytes, err := cmd.Output()
 
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err, "cmd", asteriskCommand)
+		level.Error(*c.Logger).Log("err", err, "cmd", cmd.String(), "stderr", stderr.String())
 		return "", err
 	}
 
