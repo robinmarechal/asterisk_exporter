@@ -287,7 +287,7 @@ func NewCmdRunner(asteriskPath string, logger *log.Logger) *CmdRunner {
 //////////////////////////////////////////////////////////////////////////
 
 func (c *CmdRunner) run(asteriskCommand string) (string, error) {
-	cmd := exec.Command(c.Cmd, "-rx", "'"+asteriskCommand+"'")
+	cmd := exec.Command(c.Cmd, "-rx", asteriskCommand)
 
 	level.Debug(*c.Logger).Log("msg", "Running command", "cmd", cmd.String())
 	outBytes, err := cmd.Output()
