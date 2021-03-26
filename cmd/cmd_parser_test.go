@@ -577,7 +577,8 @@ func TestNewSystemInfo(t *testing.T) {
 
 func TestNewTaskProcessorsInfo(t *testing.T) {
 	// core show taskprocessors
-	sample := `Processor                                      Processed   In Queue  Max Depth  Low water High water
+	sample := `
+	Processor                                      Processed   In Queue  Max Depth  Low water High water
 app_voicemail                                          0          0          0        450        500
 ast_msg_queue                                          0          3          0        450        500
 CCSS_core                                              1          0          1        450        500
@@ -585,7 +586,9 @@ hep_queue_tp                                           0          0          0  
 subm:ast_system-00000006                              5          2         15        450        500
 subm:ast_system-00000041                              6          7          5        450        500
 subm:ast_system-00000043                              7          0          5        450        500
-7 taskprocessors`
+
+7 taskprocessors
+`
 
 	result := cmdRunner.newTaskProcessorsInfo(sample, nil)
 

@@ -240,6 +240,7 @@ System Statistics
 
 ########################################################
 CMD: asterisk -rx 'core show taskprocessors'
+
 Processor                                      Processed   In Queue  Max Depth  Low water High water
 app_voicemail                                          0          0          0        450        500
 ast_msg_queue                                          0          0          0        450        500
@@ -328,7 +329,9 @@ subm:ast_system-00000043                              30          0          5  
 subm:cdr_engine-00000003                               9          0          4       4500       5000
 subm:rtp_topic-0000004a                                1          0          1        450        500
 subp:IAX2/demo-00000042                                2          0          2        450        500
+
 87 taskprocessors
+
 ########################################################
 CMD: asterisk -rx 'core show threads'
 0x7f67583ae700 3695 netconsole           started at [ 1639] asterisk.c listener()

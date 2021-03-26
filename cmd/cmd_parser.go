@@ -435,8 +435,16 @@ func (c *CmdRunner) newTaskProcessorsInfo(out string, err error) *TaskProcessors
 	var sumInQueue int64 = 0
 	var count int64 = 0
 
-	for i := 1; i < len(lines)-1; i++ {
+	for i := 2; i < len(lines)-1; i++ {
+		if lines[i] == "" {
+			continue
+		}
+
 		matches := StringWithoutWhitespaceRegexp.FindAllString(lines[i], 3)
+
+		if len(matches) != 3 {
+			continue
+		}
 
 		sumProcessed += util.StrToIntOrDefault(c.Logger, matches[1], 0)
 		sumInQueue += util.StrToIntOrDefault(c.Logger, matches[2], 0)
