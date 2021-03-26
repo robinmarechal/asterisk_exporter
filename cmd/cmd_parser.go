@@ -377,7 +377,14 @@ func (c *CmdRunner) newSystemInfo(out string, err error) *SystemInfo {
 	// Number of Processes:       672
 	//
 
-	result := SystemInfo{}
+	result := SystemInfo{
+		TotalMemory:  -1,
+		FreeMemory:   -1,
+		BufferMemory: -1,
+		TotalSwap:    -1,
+		FreeSwap:     -1,
+		ProcessCount: -1,
+	}
 
 	out = strings.TrimSuffix(out, "\n")
 	lines := strings.Split(out, "\n")
