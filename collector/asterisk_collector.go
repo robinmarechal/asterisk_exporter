@@ -277,7 +277,7 @@ func NewAsteriskCollector(prefix string, asteriskPath *string, logger *log.Logge
 			nil, nil,
 		),
 		systemFreeMemoryBytes: prometheus.NewDesc(
-			prometheus.BuildFQName(prefix, "", "system_freememory_free_bytes"),
+			prometheus.BuildFQName(prefix, "", "system_memory_free_bytes"),
 			"System free memory in bytes",
 			nil, nil,
 		),
