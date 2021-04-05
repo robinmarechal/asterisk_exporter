@@ -24,7 +24,7 @@ asterisk -rx 'iax2 show channels'
 
 ## Installation and Usage
 
-The `node_exporter` listens on HTTP port 9795 by default. See the `--help` output for more options.
+The `node_exporter` listens on HTTP port 9815 by default. See the `--help` output for more options.
 
 ## Collectors
 
@@ -182,7 +182,7 @@ usage: asterisk_exporter [<flags>]
 
 Flags:
   -h, --help                  Show context-sensitive help (also try --help-long and --help-man).
-      --web.listen-address=":9795"
+      --web.listen-address=":9815"
                               The address to listen on for HTTP requests.
       --asterisk.path="/usr/sbin/asterisk"
                               Path to Asterisk binary

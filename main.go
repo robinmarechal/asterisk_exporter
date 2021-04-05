@@ -24,7 +24,7 @@ import (
 )
 
 var (
-	listenAddress         = kingpin.Flag("web.listen-address", "The address to listen on for HTTP requests.").Default(":9795").String()
+	listenAddress         = kingpin.Flag("web.listen-address", "The address to listen on for HTTP requests.").Default(":9815").String()
 	asteriskPath          = kingpin.Flag("asterisk.path", "Path to Asterisk binary").Default("/usr/sbin/asterisk").String()
 	prefix                = kingpin.Flag("metrics.prefix", "Prefix of exposed metrics").Default("asterisk").String()
 	metricsPath           = kingpin.Flag("web.telemetry-path", "Path under which to expose metrics.").Default("/metrics").String()
