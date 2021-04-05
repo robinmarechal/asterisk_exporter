@@ -3,7 +3,7 @@ package collector
 import (
 	"github.com/go-kit/kit/log"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/robinmarechal/asteriskk_exporter/cmd"
+	"github.com/robinmarechal/asterisk_exporter/cmd"
 )
 
 // Custom collector interface

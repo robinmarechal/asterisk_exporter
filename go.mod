@@ -1,4 +1,4 @@
-module github.com/robinmarechal/asteriskk_exporter
+module github.com/robinmarechal/asterisk_exporter
 
 go 1.16
 

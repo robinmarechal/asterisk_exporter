@@ -1,7 +1,7 @@
 verbose: false
 
 repository:
-    path: github.com/robinmarechal/asteriskk_exporter
+    path: github.com/robinmarechal/asterisk_exporter
     
 go:
     version: 1.16
@@ -9,7 +9,7 @@ go:
 
 build:
     binaries:
-        - name: asteriskk_exporter
+        - name: asterisk_exporter
           path: .
 
     flags: -a -tags netgo
@@ -23,11 +23,11 @@ build:
         -X {{repoPath}}/version.BuildDate={{date "20060102-15:04:05"}}
 
 tarball:
-    prefix: asteriskk_exporter
+    prefix: asterisk_exporter
     files:
         - README.md
         - LICENSE
-        - asteriskk_exporter.service
+        - asterisk_exporter.service
 
 crossbuild:
     platforms:

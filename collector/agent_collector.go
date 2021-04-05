@@ -4,7 +4,7 @@ import (
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
-	"github.com/robinmarechal/asteriskk_exporter/cmd"
+	"github.com/robinmarechal/asterisk_exporter/cmd"
 )
 
 // agentCollector collector for all 'agent show ...' commands

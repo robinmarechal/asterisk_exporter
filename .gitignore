@@ -29,7 +29,7 @@ dependencies-stamp
 /.build
 /.release
 /.tarballs
-/asteriskk_exporter
+/asterisk_exporter
 
 .idea/
 *.iml

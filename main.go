@@ -19,8 +19,8 @@ import (
 	"github.com/prometheus/exporter-toolkit/web"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/robinmarechal/asteriskk_exporter/cmd"
-	"github.com/robinmarechal/asteriskk_exporter/collector"
+	"github.com/robinmarechal/asterisk_exporter/cmd"
+	"github.com/robinmarechal/asterisk_exporter/collector"
 )
 
 var (
@@ -49,12 +49,12 @@ func main() {
 func run() int {
 	promlogConfig := &promlog.Config{}
 	flag.AddFlags(kingpin.CommandLine, promlogConfig)
-	kingpin.Version(version.Print("asteriskk_exporter"))
+	kingpin.Version(version.Print("asterisk_exporter"))
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
 	logger := promlog.New(promlogConfig)
 
-	level.Info(logger).Log("msg", "starting asteriskk_exporter", "version", version.Info())
+	level.Info(logger).Log("msg", "starting asterisk_exporter", "version", version.Info())
 	level.Info(logger).Log("build_context", version.BuildContext())
 
 	http.Handle(*metricsPath, newHandler(*enableExporterMetrics, *enablePromHttpMetrics, *maxRequests, logger))
@@ -162,7 +162,7 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // flags).
 func (h *handler) innerHandler(logger log.Logger) (http.Handler, error) {
 	r := prometheus.NewRegistry()
-	r.MustRegister(version.NewCollector("asteriskk_exporter"))
+	r.MustRegister(version.NewCollector("asterisk_exporter"))
 
 	collectorError := prometheus.NewDesc(
 		prometheus.BuildFQName(*prefix, "exporter", "collector_error"),

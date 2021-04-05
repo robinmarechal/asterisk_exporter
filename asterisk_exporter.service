@@ -3,10 +3,10 @@ Description=Asterisk call center system exporter for Prometheus
 After=network.target
 
 [Service]
-User=asteriskk_exporter
-Group=asteriskk_exporter
+User=asterisk_exporter
+Group=asterisk_exporter
 Type=simple
-ExecStart=/usr/local/bin/asteriskk_exporter \
+ExecStart=/usr/local/bin/asterisk_exporter \
         --web.listen-address=":9795" \
         --web.telemetry-path="/metrics" \
         --metrics.prefix="asterisk" \

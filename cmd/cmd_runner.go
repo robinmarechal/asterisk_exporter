@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/robinmarechal/asteriskk_exporter/util"
+	"github.com/robinmarechal/asterisk_exporter/util"
 )
 
 //////////////////////////////////////////////////////////////////////////

@@ -7,7 +7,7 @@ import (
 	"github.com/docker/go-units"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
-	"github.com/robinmarechal/asteriskk_exporter/util"
+	"github.com/robinmarechal/asterisk_exporter/util"
 )
 
 func (c *CmdRunner) logError(value int64, err error) int64 {
