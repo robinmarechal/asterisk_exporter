@@ -1,5 +1,5 @@
 [Unit]
-Description=Asterisk exporter
+Description=Asterisk call center system exporter for Prometheus
 After=network.target
 
 [Service]
@@ -10,7 +10,15 @@ ExecStart=/usr/local/bin/asteriskk_exporter \
         --web.listen-address=":9795" \
         --web.telemetry-path="/metrics" \
         --metrics.prefix="asterisk" \
-        --asterisk.path="/usr/bin/asterisk"
+        --asterisk.path="/usr/bin/asterisk" \
+        --collector.agents \
+        --collector.core \
+        --collector.sip \
+        --collector.bridge \
+        --collector.calendar \
+        --collector.confbridge \
+        --collector.iax2 \
+        --collector.module 
 
 Restart=always
 RestartSec=1

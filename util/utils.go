@@ -27,11 +27,11 @@ func StrToInt(str string) (int64, error) {
 	return strconv.ParseInt(str, 10, 64)
 }
 
-func StrToIntOrDefault(logger *log.Logger, str string, defaultValue int64) int64 {
+func StrToIntOrDefault(logger log.Logger, str string, defaultValue int64) int64 {
 	result, err := strconv.ParseInt(str, 10, 64)
 
 	if err != nil {
-		level.Error(*logger).Log("err", err, "str", str)
+		level.Error(logger).Log("err", err, "str", str)
 		return defaultValue
 	}
 
@@ -42,18 +42,18 @@ func FirstElement(line string) string {
 	return strings.Split(line, " ")[0]
 }
 
-func ExtractLeadingInteger(line string, logger *log.Logger) int64 {
+func ExtractLeadingInteger(line string, logger log.Logger) int64 {
 	el := FirstElement(line)
 	v, err := StrToInt(el)
 	if err != nil {
-		level.Error(*logger).Log("err", err, "line", line)
+		level.Error(logger).Log("err", err, "line", line)
 		return -1
 	}
 
 	return v
 }
 
-func ExtractTrailingValueAfterColon(line string, logger *log.Logger) int64 {
+func ExtractTrailingValueAfterColon(line string, logger log.Logger) int64 {
 	array := strings.Split(line, ":")
 
 	lastValue := array[len(array)-1]
@@ -61,7 +61,7 @@ func ExtractTrailingValueAfterColon(line string, logger *log.Logger) int64 {
 
 	v, err := StrToInt(lastValue)
 	if err != nil {
-		level.Error(*logger).Log("err", err, "line", line)
+		level.Error(logger).Log("err", err, "line", line)
 		return -1
 	}
 

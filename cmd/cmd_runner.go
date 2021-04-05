@@ -16,7 +16,7 @@ import (
 
 // CmdRunner command struct
 type CmdRunner struct {
-	Logger *log.Logger
+	Logger log.Logger
 	Cmd    string
 }
 
@@ -157,6 +157,7 @@ type SipChannelsInfo struct {
 }
 
 type UsersInfo struct {
+	// sip show users
 	Users int64
 }
 
@@ -276,7 +277,7 @@ var (
 //////////////////////////////////////////////////////////////////////////
 
 // NewCmdRunner build cmdRunner instance
-func NewCmdRunner(asteriskPath string, logger *log.Logger) *CmdRunner {
+func NewCmdRunner(asteriskPath string, logger log.Logger) *CmdRunner {
 	return &CmdRunner{
 		Logger: logger,
 		Cmd:    asteriskPath,
@@ -294,11 +295,11 @@ func (c *CmdRunner) run(asteriskCommand string) (string, error) {
 
 	cmd.Stderr = &stderr
 
-	level.Debug(*c.Logger).Log("msg", "Running command", "cmd", cmd.String())
+	level.Debug(c.Logger).Log("msg", "Running command", "cmd", cmd.String())
 	outBytes, err := cmd.Output()
 
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err, "cmd", cmd.String(), "stderr", stderr.String())
+		level.Error(c.Logger).Log("err", err, "cmd", cmd.String(), "stderr", stderr.String())
 		return "", err
 	}
 

@@ -116,27 +116,27 @@ func TestExtractLeadingInteger(t *testing.T) {
 	var result int64
 
 	expected = -1
-	if result = ExtractLeadingInteger("", &logger); result != expected {
+	if result = ExtractLeadingInteger("", logger); result != expected {
 		t.Errorf("Invalid ExtractLeadingInteger result. It should return default value -1. Param: ''")
 	}
 
 	expected = -1
-	if result = ExtractLeadingInteger("abc", &logger); result != expected {
+	if result = ExtractLeadingInteger("abc", logger); result != expected {
 		t.Errorf("Invalid ExtractLeadingInteger result. It should return default value -1. Param: 'abc'")
 	}
 
 	expected = -1
-	if result = ExtractLeadingInteger("abc def", &logger); result != expected {
+	if result = ExtractLeadingInteger("abc def", logger); result != expected {
 		t.Errorf("Invalid ExtractLeadingInteger result. It should return default value -1. Param: 'abc def'")
 	}
 
 	expected = -1
-	if result = ExtractLeadingInteger("abc 5 def ijk", &logger); result != expected {
+	if result = ExtractLeadingInteger("abc 5 def ijk", logger); result != expected {
 		t.Errorf("Invalid ExtractLeadingInteger result. It should return default value -1. Param: '5 def'")
 	}
 
 	expected = 5
-	if result = ExtractLeadingInteger("5 def ijk", &logger); result != expected {
+	if result = ExtractLeadingInteger("5 def ijk", logger); result != expected {
 		t.Errorf("Invalid ExtractLeadingInteger result. It should return 5. Param: '5 def'")
 	}
 }
@@ -146,32 +146,32 @@ func TestExtractTrailingValueAfterColon(t *testing.T) {
 	var result int64
 
 	expected = -1
-	if result = ExtractTrailingValueAfterColon("", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return default value -1. Param: ''")
 	}
 
 	expected = -1
-	if result = ExtractTrailingValueAfterColon("abc", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("abc", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return default value -1. Param: 'abc'")
 	}
 
 	expected = -1
-	if result = ExtractTrailingValueAfterColon("abc: def", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("abc: def", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return default value -1. Param: 'abc: def'")
 	}
 
 	expected = -1
-	if result = ExtractTrailingValueAfterColon("abc def: 5 ijk", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("abc def: 5 ijk", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return default value -1. Param: 'abc def: 5 ijk'")
 	}
 
 	expected = 5
-	if result = ExtractTrailingValueAfterColon("def ijk :5", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("def ijk :5", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return 5. Param: 'def ijk :5'")
 	}
 
 	expected = 5
-	if result = ExtractTrailingValueAfterColon("def ijk:    5", &logger); result != expected {
+	if result = ExtractTrailingValueAfterColon("def ijk:    5", logger); result != expected {
 		t.Errorf("Invalid ExtractTrailingValueAfterColon result. It should return 5. Param: 'def ijk:    5'")
 	}
 }

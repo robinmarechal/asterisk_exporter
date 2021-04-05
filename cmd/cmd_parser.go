@@ -12,7 +12,7 @@ import (
 
 func (c *CmdRunner) logError(value int64, err error) int64 {
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err)
+		level.Error(c.Logger).Log("err", err)
 		return -1
 	}
 
@@ -30,7 +30,7 @@ func (c *CmdRunner) newUptimeInfo(out string, err error) *UptimeInfo {
 
 	length := len(lines)
 	if length != 2 {
-		level.Error(*c.Logger).Log("err", "Uptime command is not well formatted.", "output", out)
+		level.Error(c.Logger).Log("err", "Uptime command is not well formatted.", "output", out)
 		return &DefaultUptimeInfo
 	}
 
@@ -49,7 +49,7 @@ func (c *CmdRunner) newChannelsInfo(out string, err error) *ChannelsInfo {
 
 	length := len(lines)
 	if length != 3 {
-		level.Error(*c.Logger).Log("err", "Channels command is not well formatted.", "output", out)
+		level.Error(c.Logger).Log("err", "Channels command is not well formatted.", "output", out)
 		return &DefaultChannelsInfo
 	}
 
@@ -70,7 +70,7 @@ func (c *CmdRunner) newPeersInfo(out string, err error) *PeersInfo {
 	// 642 OK (9875
 
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err)
+		level.Error(c.Logger).Log("err", err)
 		return &DefaultPeersInfo
 	}
 
@@ -81,9 +81,9 @@ func (c *CmdRunner) newPeersInfo(out string, err error) *PeersInfo {
 
 	if peersInfoLine == "" || err2 != nil {
 		if peersInfoLine == "" {
-			level.Error(*c.Logger).Log("err", "Error, command output is empty", "cmd", "show sip peers")
+			level.Error(c.Logger).Log("err", "Error, command output is empty", "cmd", "show sip peers")
 		} else {
-			level.Error(*c.Logger).Log("err", err2, "cmd", "show sip peers")
+			level.Error(c.Logger).Log("err", err2, "cmd", "show sip peers")
 		}
 		setPeersMonitoringInfoToDefault(&obj)
 	} else {
@@ -93,7 +93,7 @@ func (c *CmdRunner) newPeersInfo(out string, err error) *PeersInfo {
 
 		for _, err := range *errors {
 			if err != nil {
-				level.Error(*c.Logger).Log("err", err)
+				level.Error(c.Logger).Log("err", err)
 			}
 		}
 	}
@@ -103,7 +103,7 @@ func (c *CmdRunner) newPeersInfo(out string, err error) *PeersInfo {
 	return &obj
 }
 
-func setPeersInfoFromMonitoringInfoLine(logger *log.Logger, obj *PeersInfo, line string) *[]error {
+func setPeersInfoFromMonitoringInfoLine(logger log.Logger, obj *PeersInfo, line string) *[]error {
 	errors := make([]error, 5)
 
 	submatchall := AllNumbersRegexp.FindAllString(line, 5)
@@ -125,7 +125,7 @@ func setPeersMonitoringInfoToDefault(obj *PeersInfo) {
 	obj.UnmonitoredOffline = DefaultPeersInfo.UnmonitoredOffline
 }
 
-func setUnknownAndOkPeersCount(logger *log.Logger, obj *PeersInfo, lines []string) {
+func setUnknownAndOkPeersCount(logger log.Logger, obj *PeersInfo, lines []string) {
 	// asterisk -rx 'sip show peers' | grep -P '^\d{3,}.*UNKNOWN\s' | wc -l"
 	// asterisk -rx 'sip show peers' | grep -P '^\d{3,}.*OK\s\(\d+' | wc -l"
 	obj.PeersStatusQualified = 0
@@ -171,7 +171,7 @@ func (c *CmdRunner) newThreadsInfo(out string, err error) *ThreadsInfo {
 	intValue, err := util.StrToInt(valueStr)
 
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err, "line", lastLine, "value", valueStr)
+		level.Error(c.Logger).Log("err", err, "line", lastLine, "value", valueStr)
 		return &DefaultThreadsInfo
 	}
 
@@ -182,14 +182,14 @@ func (c *CmdRunner) newThreadsInfo(out string, err error) *ThreadsInfo {
 
 func (c *CmdRunner) newAgentsInfo(out string, err error) *AgentsInfo {
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err)
+		level.Error(c.Logger).Log("err", err)
 		return &DefaultAgentsInfo
 	}
 
 	lastLine := util.ExtractLastLine(out)
 
 	if lastLine == "" {
-		level.Error(*c.Logger).Log("err", "Error, command output is empty")
+		level.Error(c.Logger).Log("err", "Error, command output is empty")
 		return &DefaultAgentsInfo
 	}
 
@@ -205,14 +205,14 @@ func (c *CmdRunner) newAgentsInfo(out string, err error) *AgentsInfo {
 
 func (c *CmdRunner) newOnlineAgentsInfo(out string, err error) *OnlineAgentsInfo {
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err)
+		level.Error(c.Logger).Log("err", err)
 		return &DefaultOnlineAgentsInfo
 	}
 
 	lastLine := util.ExtractLastLine(out)
 
 	if lastLine == "" {
-		level.Error(*c.Logger).Log("err", "Error, command output is empty")
+		level.Error(c.Logger).Log("err", "Error, command output is empty")
 		return &DefaultOnlineAgentsInfo
 	}
 
@@ -228,7 +228,7 @@ func (c *CmdRunner) newOnlineAgentsInfo(out string, err error) *OnlineAgentsInfo
 
 func (c *CmdRunner) newBridgesInfo(out string, err error) *BridgesInfo {
 	if err != nil {
-		level.Error(*c.Logger).Log("err", err)
+		level.Error(c.Logger).Log("err", err)
 		return &DefaultBridgesInfo
 	}
 
@@ -547,5 +547,3 @@ func (c *CmdRunner) newUsersInfo(out string, err error) *UsersInfo {
 		Users: int64(util.CountLines(out)) - 1,
 	}
 }
-
-// core show calls + seconds ???

@@ -12,7 +12,7 @@ var (
 	logger = promlog.New(logCfg)
 
 	cmdRunner = CmdRunner{
-		Logger: &logger,
+		Logger: logger,
 		Cmd:    "",
 	}
 )
@@ -601,21 +601,6 @@ subm:ast_system-00000043                              7          0          5   
 	if *result != expected {
 		t.Errorf("TaskProcessorsInfo has not been computed correctly.\nExpected: %d\nActual: %d", expected, result.ProcessorCounter)
 	}
-
-	// expected = 7
-	// if result.ProcessorCounter != expected {
-	// 	t.Errorf("ProcessorCounter has not been computed correctly.\nExpected: %d\nActual: %d", expected, result.ProcessorCounter)
-	// }
-
-	// expected = 19
-	// if result.ProcessedTasksTotal != expected {
-	// 	t.Errorf("ProcessedTasksTotal has not been computed correctly.\nExpected: %d\nActual: %d", expected, result.ProcessedTasksTotal)
-	// }
-
-	// expected = 12
-	// if result.InQueue != expected {
-	// 	t.Errorf("InQueue has not been computed correctly.\nExpected: %d\nActual: %d", expected, result.InQueue)
-	// }
 }
 
 func TestNewVersionInfo(t *testing.T) {
