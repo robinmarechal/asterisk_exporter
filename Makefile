@@ -5,7 +5,15 @@ PKGS := $(shell $(GO) list ./... | grep -v /vendor/)
 PREFIX ?= $(shell pwd)
 BIN_DIR ?= $(shell pwd)
 
-all: format build
+pkgs          = ./...
+ifeq ($(GOHOSTARCH),amd64)
+        ifeq ($(GOHOSTOS),$(filter $(GOHOSTOS),linux freebsd darwin windows))
+                # Only supported on amd64
+                test-flags := -race
+        endif
+endif
+
+all: vet format tarball
 
 style:
 	@echo ">> checking code style"
@@ -19,7 +27,7 @@ vet:
 	@echo ">> vetting code"
 	@$(GO) vet $(PKGS)
 
-build: promu
+build: test promu
 	@echo ">> building binaries"
 	@$(PROMU) build --prefix $(PREFIX)
 
@@ -32,4 +40,8 @@ promu:
 		$(GO) get -u github.com/prometheus/promu; \
 	fi
 
-.PHONY: all style format build vet tarball promu
+test:
+	@echo ">> running tests"
+	$(GO) test -short $(test-flags) $(pkgs)
+
+.PHONY: all style format build vet tarball promu test
