@@ -38,7 +38,7 @@ Collectors are disabled by providing a `--collector.<name>=false` flag.
 
 Name     | Description 
 ---------|-------------
-agents | Gather metrics from `agents show ...` commands.
+agents | Gather metrics from `agent show ...` commands.
 core | Gather metrics from `core show ...` commands.
 sip | Gather metrics from `sip show ...` commands.
 
@@ -47,11 +47,11 @@ sip | Gather metrics from `sip show ...` commands.
 
 Name     | Description 
 ---------|-------------
-bridge | Gather metrics from `bridge show ...` commands.
-calendar | Gather metrics from `calendar show ...` commands.
-confbridge | Gather metrics from `confbridge show ...` commands.
+bridges | Gather metrics from `bridge show ...` commands.
+calendars | Gather metrics from `calendar show ...` commands.
+confbridges | Gather metrics from `confbridge show ...` commands.
 iax2 | Gather metrics from `iax2 show ...` commands.
-module | Gather metrics from `module show ...` commands.
+modules | Gather metrics from `module show ...` commands.
 
 
 ## Metrics
@@ -181,31 +181,31 @@ asterisk_sip_users
 usage: asterisk_exporter [<flags>]
 
 Flags:
-  -h, --help                  Show context-sensitive help (also try --help-long and --help-man).
+  -h, --help                   Show context-sensitive help (also try --help-long and --help-man).
       --web.listen-address=":9815"
-                              The address to listen on for HTTP requests.
+                               The address to listen on for HTTP requests.
       --asterisk.path="/usr/sbin/asterisk"
-                              Path to Asterisk binary
+                               Path to Asterisk binary
       --metrics.prefix="asterisk"
-                              Prefix of exposed metrics
+                               Prefix of exposed metrics
       --web.telemetry-path="/metrics"
-                              Path under which to expose metrics.
+                               Path under which to expose metrics.
       --web.enable-exporter-metrics
-                              Include metrics about the exporter itself (process_*, go_*).
+                               Include metrics about the exporter itself (process_*, go_*).
       --web.enable-promhttp-metrics
-                              Include metrics about the http server itself (promhttp_*)
-      --web.max-requests=40   Maximum number of parallel scrape requests. Use 0 to disable.
-      --collector.agents      Enable agents collector
-      --collector.core        Enable core collector
-      --collector.sip         Enable sip collector
-      --collector.bridge      Enable bridge collector
-      --collector.calendar    Enable calendar collector
-      --collector.confbridge  Enable confbridge collector
-      --collector.iax2        Enable iax2 collector
-      --collector.module      Enable module collector
-      --log.level=info        Only log messages with the given severity or above. One of: [debug, info, warn, error]
-      --log.format=logfmt     Output format of log messages. One of: [logfmt, json]
-      --version               Show application version.
+                               Include metrics about the http server itself (promhttp_*)
+      --web.max-requests=40    Maximum number of parallel scrape requests. Use 0 to disable.
+      --collector.agents       Enable agents collector
+      --collector.core         Enable core collector
+      --collector.sip          Enable sip collector
+      --collector.bridges      Enable bridge collector
+      --collector.calendars    Enable calendar collector
+      --collector.confbridges  Enable confbridge collector
+      --collector.iax2         Enable iax2 collector
+      --collector.modules      Enable module collector
+      --log.level=info         Only log messages with the given severity or above. One of: [debug, info, warn, error]
+      --log.format=logfmt      Output format of log messages. One of: [logfmt, json]
+      --version                Show application version.
 ```
 
 ## Development building and running
