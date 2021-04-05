@@ -35,11 +35,11 @@ var (
 	enableAgentsCollector     = kingpin.Flag("collector.agents", "Enable agents collector").Default("true").Bool()
 	enableCoreCollector       = kingpin.Flag("collector.core", "Enable core collector").Default("true").Bool()
 	enableSipCollector        = kingpin.Flag("collector.sip", "Enable sip collector").Default("true").Bool()
-	enableBridgeCollector     = kingpin.Flag("collector.bridge", "Enable bridge collector").Default("false").Bool()
-	enableCalendarCollector   = kingpin.Flag("collector.calendar", "Enable calendar collector").Default("false").Bool()
-	enableConfbridgeCollector = kingpin.Flag("collector.confbridge", "Enable confbridge collector").Default("false").Bool()
+	enableBridgeCollector     = kingpin.Flag("collector.bridges", "Enable bridge collector").Default("false").Bool()
+	enableCalendarCollector   = kingpin.Flag("collector.calendars", "Enable calendar collector").Default("false").Bool()
+	enableConfbridgeCollector = kingpin.Flag("collector.confbridges", "Enable confbridge collector").Default("false").Bool()
 	enableIax2Collector       = kingpin.Flag("collector.iax2", "Enable iax2 collector").Default("false").Bool()
-	enableModuleCollector     = kingpin.Flag("collector.module", "Enable module collector").Default("false").Bool()
+	enableModuleCollector     = kingpin.Flag("collector.modules", "Enable module collector").Default("false").Bool()
 )
 
 func main() {
