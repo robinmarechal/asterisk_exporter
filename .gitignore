@@ -37,4 +37,4 @@ dependencies-stamp
 .vscode/
 __debug_bin
 
-*.sh
+collect_*.sh

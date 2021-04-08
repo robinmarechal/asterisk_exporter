@@ -24,7 +24,7 @@ asterisk -rx 'iax2 show channels'
 
 ## Installation and Usage
 
-The `node_exporter` listens on HTTP port 9815 by default. See the `--help` output for more options.
+The `asterisk_exporter` listens on HTTP port 9815 by default. See the `--help` output for more options.
 
 ## Collectors
 
