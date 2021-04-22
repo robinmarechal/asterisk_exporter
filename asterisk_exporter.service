@@ -14,11 +14,11 @@ ExecStart=/usr/local/bin/asterisk_exporter \
         --collector.agents \
         --collector.core \
         --collector.sip \
-        --collector.bridge \
-        --collector.calendar \
-        --collector.confbridge \
+        --collector.bridges \
+        --collector.calendars \
+        --collector.confbridges \
         --collector.iax2 \
-        --collector.module 
+        --collector.modules
 
 Restart=always
 RestartSec=1
