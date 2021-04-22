@@ -5,6 +5,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/robinmarechal/asterisk_exporter/cmd"
+	"github.com/robinmarechal/asterisk_exporter/util"
 )
 
 // coreCollector collector for all 'core show ...' commands
@@ -24,6 +25,10 @@ type coreCollector struct {
 	systemTotalSwapBytes     *prometheus.Desc
 	systemFreeSwapBytes      *prometheus.Desc
 	systemProcesses          *prometheus.Desc
+	threadCount              *prometheus.Desc
+	channelActive            *prometheus.Desc
+	channelIndication        *prometheus.Desc
+	channelTransfer          *prometheus.Desc
 	tasksProcessors          *prometheus.Desc
 	tasksProcessedTasksTotal *prometheus.Desc
 	tasksProcessesInQueue    *prometheus.Desc
@@ -107,6 +112,26 @@ func NewCoreCollector(prefix string, cmdRunner *cmd.CmdRunner, logger log.Logger
 			prometheus.BuildFQName(prefix, "core", "system_processes"),
 			"Number of system processes",
 			nil, nil,
+		),
+		threadCount: prometheus.NewDesc(
+			prometheus.BuildFQName(prefix, "core", "thread_count"),
+			"Number of threads",
+			nil, nil,
+		),
+		channelActive: prometheus.NewDesc(
+			prometheus.BuildFQName(prefix, "core", "channel_active"),
+			"Active flag of channels",
+			[]string{"type"}, nil,
+		),
+		channelIndication: prometheus.NewDesc(
+			prometheus.BuildFQName(prefix, "core", "channel_indication"),
+			"Indication flag of channels",
+			[]string{"type"}, nil,
+		),
+		channelTransfer: prometheus.NewDesc(
+			prometheus.BuildFQName(prefix, "core", "channel_transfer"),
+			"Transfer flag of channels",
+			[]string{"type"}, nil,
 		),
 		tasksProcessors: prometheus.NewDesc(
 			prometheus.BuildFQName(prefix, "core", "tasks_processors"),
@@ -199,10 +224,17 @@ func (c *coreCollector) updateMetrics(values *coreMetrics, ch chan<- prometheus.
 	ch <- prometheus.MustNewConstMetric(c.systemTotalSwapBytes, prometheus.GaugeValue, float64(values.SystemInfo.TotalSwap))
 	ch <- prometheus.MustNewConstMetric(c.systemFreeSwapBytes, prometheus.GaugeValue, float64(values.SystemInfo.FreeSwap))
 	ch <- prometheus.MustNewConstMetric(c.systemProcesses, prometheus.GaugeValue, float64(values.SystemInfo.ProcessCount))
+	ch <- prometheus.MustNewConstMetric(c.threadCount, prometheus.GaugeValue, float64(values.ThreadsInfo.ThreadCount))
 	ch <- prometheus.MustNewConstMetric(c.tasksProcessors, prometheus.GaugeValue, float64(values.TaskProcessorsInfo.ProcessorCounter))
 	ch <- prometheus.MustNewConstMetric(c.tasksProcessedTasksTotal, prometheus.CounterValue, float64(values.TaskProcessorsInfo.ProcessedTasksTotal))
 	ch <- prometheus.MustNewConstMetric(c.tasksProcessesInQueue, prometheus.GaugeValue, float64(values.TaskProcessorsInfo.InQueue))
 	ch <- prometheus.MustNewConstMetric(c.version, prometheus.GaugeValue, 1, values.VersionInfo.Version)
+
+	for _, typeInfo := range values.ChannelTypesInfo.ChannelTypes {
+		ch <- prometheus.MustNewConstMetric(c.channelActive, prometheus.GaugeValue, util.BoolToFloat(typeInfo.DeviceState), typeInfo.Type)
+		ch <- prometheus.MustNewConstMetric(c.channelTransfer, prometheus.GaugeValue, util.BoolToFloat(typeInfo.Transfer), typeInfo.Type)
+		ch <- prometheus.MustNewConstMetric(c.channelIndication, prometheus.GaugeValue, util.BoolToFloat(typeInfo.Indications), typeInfo.Type)
+	}
 
 	level.Debug(c.logger).Log("msg", "core metrics built")
 }
